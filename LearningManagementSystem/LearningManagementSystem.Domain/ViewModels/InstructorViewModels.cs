@@ -21,7 +21,7 @@ namespace LearningManagementSystem.Domain.ViewModels
         public DateOnly dob { get; set; }
         public string address { get; set; } = null!;
         public string profile_photo { get; set; } = null!;
-        public string role_id { get; set; } = null!; // Validation Required for allow only student or instructor
+        public int role_id { get; set; }  // Validation Required for allow only student or instructor
         public bool is_available { get; set; } = false;
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
         public DateTime? UpdatedDate { get; set; }
