@@ -9,7 +9,7 @@ using LearningManagementSystem.DataBase.Models;
 
 namespace LearningManagementSystem.Domain.Services.InstructorServices
 {
-    public class InstructorRepository
+    public class InstructorRepository : IInstructorRepository
     {
         private readonly AppDbContext _db;
 
@@ -52,8 +52,8 @@ namespace LearningManagementSystem.Domain.Services.InstructorServices
                 profile_photo = reqModel.profile_photo,
                 role_id = reqModel.role_id,
                 is_available = reqModel.is_available,
-                created_at = reqModel.CreatedDate,
-                updated_at = reqModel.UpdatedDate,
+                created_at = reqModel.created_at,
+                updated_at = reqModel.updated_at,
                 isDeleted = false
             };
         }
@@ -65,7 +65,9 @@ namespace LearningManagementSystem.Domain.Services.InstructorServices
                 //id = Guid.NewGuid(), 
                 user_id = userId,
                 nrc = instructor.nrc,
-                edu_background = instructor.edu_background
+                edu_background = instructor.edu_background,
+                created_at = instructor.created_at,
+                updated_at = instructor.updated_at
             };
         }
     }

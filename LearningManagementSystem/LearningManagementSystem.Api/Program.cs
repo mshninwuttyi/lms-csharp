@@ -1,5 +1,6 @@
 using LearningManagementSystem.DataBase.Data;
 using LearningManagementSystem.Domain.Services.CategoryServices;
+using LearningManagementSystem.Domain.Services.InstructorServices;
 using LearningManagementSystem.Domain.Services.UsersServices;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -56,6 +57,8 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<CategoryRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
+builder.Services.AddScoped<InstructorRepository>();
+builder.Services.AddScoped<IInstructorRepository, InstructorRepository>();
 
 //builder.Services.AddTransient<IUserRepository, UserRepository>();
 //builder.Services.AddSingleton<IUserRepository, UserRepository>();

@@ -23,7 +23,7 @@ namespace LearningManagementSystem.Domain.ViewModels
         public string profile_photo { get; set; } = null!;
         public int role_id { get; set; }  // Validation Required for allow only student or instructor
         public bool is_available { get; set; } = false;
-        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
-        public DateTime? UpdatedDate { get; set; }
+        public DateTime created_at { get; set; } = DateTime.UtcNow;
+        public DateTime? updated_at { get; set; }
     }
 }
