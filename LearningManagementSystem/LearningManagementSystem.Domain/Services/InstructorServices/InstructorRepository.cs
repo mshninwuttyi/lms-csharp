@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LearningManagementSystem.DataBase.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace LearningManagementSystem.Domain.Services.InstructorServices
 {
@@ -34,6 +35,46 @@ namespace LearningManagementSystem.Domain.Services.InstructorServices
         }
 
 
+        public List<InstructorViewModels> GetInstructors()
+        {
+
+            // Retrieve the Role ID for 'Instructor'
+            var roleId = _db.Roles
+            .Where(x => x.role == "Instructor")
+            .Select(x => x.id)
+            .FirstOrDefault();
+
+            var instViewModel = _db.Users
+            .AsNoTracking()
+            .Where(x => x.role_id == roleId && x.isDeleted == false)
+            .Join(
+            _db.Instructors,
+            user => user.id,
+            instructor => instructor.user_id,
+            (user, instructor) => new InstructorViewModels
+            {
+                //Fields form Users table
+                username = user.username,
+                email = user.email,
+                password = user.password,
+                phone = user.phone,
+                dob = user.dob,
+                address = user.address,
+                profile_photo = user.profile_photo,
+                role_id = user.role_id,
+                is_available = user.is_available,
+                created_at = user.created_at,
+                updated_at = user.updated_at,
+
+
+                //Fields form Instructors table
+                nrc = instructor.nrc,
+                edu_background = instructor.edu_background
+            })
+            .ToList();
+
+            return instViewModel;
+        }
 
 
 

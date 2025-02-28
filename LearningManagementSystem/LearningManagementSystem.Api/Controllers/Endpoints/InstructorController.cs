@@ -22,5 +22,12 @@ namespace LearningManagementSystem.Api.Controllers.Endpoints
             return Ok(items);
         }
 
+        [HttpGet]
+        public IActionResult GetInstructors(InstructorViewModels reqModel)
+        {
+            var items = _instructorRepository.Getinstructor(reqModel);
+            return Ok(items);
+        }
+
     }
 }

@@ -10,5 +10,7 @@ namespace LearningManagementSystem.Domain.Services.InstructorServices
     public interface IInstructorRepository
     {
         InstructorViewModels CreateInstructor(InstructorViewModels reqModel);
+
+        List<InstructorViewModels> GetInstructors(InstructorViewModels reqModel);
     }
 }
