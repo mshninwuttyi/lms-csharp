@@ -11,6 +11,6 @@ namespace LearningManagementSystem.Domain.Services.InstructorServices
     {
         InstructorViewModels CreateInstructor(InstructorViewModels reqModel);
 
-        List<InstructorViewModels> GetInstructors(InstructorViewModels reqModel);
+        List<InstructorViewModels> GetInstructors();
     }
 }

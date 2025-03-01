@@ -8,12 +8,6 @@ namespace LearningManagementSystem.Domain.ViewModels
 {
     public class InstructorViewModels
     {
-        //Instructor
-        public string nrc { get; set; } = null!;
-        public string edu_background { get; set; } = null!;
-
-
-
         //User
         public string username { get; set; } = null!;
         public string email { get; set; } = null!;
@@ -26,5 +20,9 @@ namespace LearningManagementSystem.Domain.ViewModels
         public bool is_available { get; set; } = false;
         public DateTime created_at { get; set; } = DateTime.UtcNow;
         public DateTime? updated_at { get; set; }
+
+        //Instructor
+        public string nrc { get; set; } = null!;
+        public string edu_background { get; set; } = null!;
     }
 }
