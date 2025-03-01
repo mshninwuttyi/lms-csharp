@@ -29,5 +29,12 @@ namespace LearningManagementSystem.Api.Controllers.Endpoints
             return Ok(items);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetInstructorById(int id)
+        {
+            var items = _instructorRepository.GetInstructorById(id);
+            return Ok(items);
+        }
+
     }
 }
